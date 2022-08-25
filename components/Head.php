@@ -29,3 +29,9 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
+  <!-- Navbar -->
+  <?php include "components/Navbar.php"; ?>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <?php include "components/MainSideContainer.php"; ?>

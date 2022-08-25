@@ -10,14 +10,6 @@
 
   <?php include "components/Head.php"; ?>
 
-
-  <!-- Navbar -->
-  <?php include "components/Navbar.php"; ?>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <?php include "components/MainSideContainer.php"; ?>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
