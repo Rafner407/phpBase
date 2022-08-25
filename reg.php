@@ -65,7 +65,7 @@ if(isset($_POST['sub'])){
                 <tr>
                     <td>
                         Gênero
-                        <input type="radio"name="gen" id="gen" value="male">Masculino
+                        <input type="radio" name="gen" id="gen" value="male">Masculino
                         <input type="radio" name="gen" id="gen" value="female">Feminino
                     </td>
                 </tr>

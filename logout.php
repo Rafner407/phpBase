@@ -3,5 +3,5 @@ session_start();
 
 unset($_SESSION['id']);
 
-header('location:login.php');
+header('location:loginTemplate.php');
 ?>
