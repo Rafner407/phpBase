@@ -10,7 +10,7 @@ if(isset($_POST['sub'])){
    if(mysqli_num_rows($qu)>0){
       $f= mysqli_fetch_assoc($qu);
       $_SESSION['id']=$f['id'];
-      header ('location:AdminLTE-3.2.0/TesteIndex.php');
+      header ('location:homeTemplate.php');
    }
    else{
        echo 'Nome de usuário ou senha não existem';
