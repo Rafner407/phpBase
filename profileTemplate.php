@@ -103,6 +103,7 @@ if(isset($_POST['sub'])){
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <input type="submit" class="btn btn-danger" value="Submit" name="sub">
+                          <button class="btn btn-danger"><a href="profileEdit.php">Editar</a></button>
                         </div>
                       </div>
                     </form>
