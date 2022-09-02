@@ -16,7 +16,7 @@ if(isset($_POST['sub'])){
     }
     $i="update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
     mysqli_query($con, $i);
-    header('location:home.php');
+    header('location:homeTemplate.php');
 }
      $s="select*from reg where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
@@ -31,7 +31,7 @@ if(isset($_POST['sub'])){
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Cadastrar perfil</h1>
+          <h1>Editar perfil</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -124,7 +124,6 @@ if(isset($_POST['sub'])){
                     <div class="form-group row">
                       <div class="offset-sm-2 col-sm-10">
                         <input type="submit" class="btn btn-danger" value="Submit" name="sub">
-                        <button class="btn btn-danger"><a href="profileEdit.php">Editar</a></button>
                       </div>
                     </div>
                   </form>
