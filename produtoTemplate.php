@@ -3,16 +3,10 @@
 include 'connect.php';
 
 if(isset($_POST['sub'])){
-    $t=$_POST['text'];
-    $u=$_POST['user'];
-    $p=$_POST['pass'];
-    $c=$_POST['city'];
-    $g=$_POST['gen'];
-    if($_FILES['f1']['name']){
-    move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
-    $img="image/".$_FILES['f1']['name'];
-    }
-    $i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
+    $t=$_POST['id'];
+    $u=$_POST['nome'];
+    $p=$_POST['preco'];
+    $i="insert into produto2(idProduto,nomeProduto,precoProduto)value('$t','$u','$p')";
     mysqli_query($con, $i);
 }
 ?>
@@ -43,43 +37,7 @@ if(isset($_POST['sub'])){
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
-
-            <!-- Profile Image -->
-            <div class="card card-primary card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="AdminLTE-3.2.0/dist/img/boxed-bg.jpg"
-                       alt="User profile picture">
-                </div>
-
-                <h3 class="profile-username text-center"><?php echo $t['text']?></h3>
-
-                <p class="text-muted text-center">Software Engineer</p>
-
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
-                  </li>
-                </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-            <!-- About Me Box -->
- 
-            <!-- /.card -->
-          </div>
+          
           <!-- /.col -->
           <div class="col-md-9">
               <div class="card-body">
@@ -90,33 +48,21 @@ if(isset($_POST['sub'])){
                   <div class="tab-pane" id="settings">
                     <form class="form-horizontal">
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                        <label for="inputID" class="col-sm-2 col-form-label">ID do produto</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Name">
+                          <input type="text" class="form-control" id="inputID" placeholder="ID" name="id">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="inputNome" class="col-sm-2 col-form-label">Nome do produto</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="text" class="form-control" id="inputNome" placeholder="Nome" name="nome">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                        <label for="inputPreco" class="col-sm-2 col-form-label">Preço do produto</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Name">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                        <div class="col-sm-10">
-                          <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                          <input type="text" class="form-control" id="inputPreco" placeholder="Preço" name="preco">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -130,7 +76,8 @@ if(isset($_POST['sub'])){
                       </div>
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
+                        <input type="submit" class="btn btn-danger" value="Submit" name="sub">
+                        <button class="btn btn-danger"><a href="produtoEdit.php">Editar</a></button>
                         </div>
                       </div>
                     </form>
