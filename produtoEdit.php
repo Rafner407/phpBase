@@ -1,12 +1,26 @@
 <?php
-    include 'connect.php';
-    include 'checklogin.php';
-    
-    $s="select * from produto2 where idProduto='$_SESSION[id]'";
+include 'connect.php';
+include 'checklogin.php';
+if(isset($_POST['sub'])){
+    $t=$_POST['id'];
+    $u=$_POST['nome'];
+    $p=$_POST['preco'];
+    $c=$_POST['quant'];
+    if($_FILES['f1']['name']){
+    move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
+    $img="image/".$_FILES['f1']['name'];
+    }
+    else{
+      $img=$_POST['img1'];
+    }
+    $i="update produto2 set idProduto='$t',nomeProduto='$u',precoProduto='$p',quantidade='$c',imagem='$img' where idProduto='$_SESSION[id]'";
+    mysqli_query($con, $i);
+    header('location:produtos.php');
+}
+    $s="select*from produto2 where idProduto='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
-    
-?>
+    ?> 
 
   <?php include "components/Head.php"; ?>
 

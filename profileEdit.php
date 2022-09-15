@@ -1,6 +1,6 @@
 <?php
-include'connect.php';
-include'checklogin.php';
+include 'connect.php';
+include 'checklogin.php';
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
     $u=$_POST['user'];
@@ -87,9 +87,9 @@ if(isset($_POST['sub'])){
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Imagem</label>
                       <div class="col-sm-10">
-                      <img src="<?php echo $f['image']?>" width="100px" height="100px">
+                      <img src="<?php echo $f['imagem']?>" width="100px" height="100px">
                         <input type="file" name="f1">
-                        <input type="hidden" name="img1" value="<?php echo $f['image']?>">
+                        <input type="hidden" name="img1" value="<?php echo $f['imagem']?>">
                       </div>
                     </div>
                     <div class="form-group row">
