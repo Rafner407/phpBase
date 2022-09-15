@@ -1,7 +1,11 @@
 <?php
-
-include 'connect.php';
-
+    include 'connect.php';
+    include 'checklogin.php';
+    
+    $s="select * from produto2 where idProduto='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+    
 ?>
 
   <?php include "components/Head.php"; ?>
@@ -32,12 +36,7 @@ include 'connect.php';
         <div class="row">
           <div class="col-md-3">
 
-            <!-- Profile Image -->
-            <?php
-            $sq="select * from produto2";
-            $qu=mysqli_query($con,$sq);
-            while($f=  mysqli_fetch_assoc($qu)){ 
-            ?>             
+            <!-- Profile Image -->       
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
@@ -46,29 +45,20 @@ include 'connect.php';
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center"><?php echo $t['id']?></h3>
-
-                <p class="text-muted text-center"><?php echo $u['nome']?></p>
+                <h3 class="profile-username text-center"><?php echo $f['nome'];?></h3>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
+                    <b>ID</b> <a class="float-right"><?php echo $f['id'];?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
+                    <b>Preço</b> <a class="float-right"><?php echo $f['preco'];?></a>
                   </li>
                 </ul>
 
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
               </div>
               <!-- /.card-body -->
             </div>
-            <?php
-          }
-            ?>
             <!-- /.card -->
 
             <!-- About Me Box -->
